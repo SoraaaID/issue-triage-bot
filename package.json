@@ -1,0 +1,26 @@
+{
+  "name": "issue-triage-bot",
+  "version": "1.0.0",
+  "description": "Automated GitHub Issue Triage Bot powered by Gemini AI",
+  "type": "module",
+  "scripts": {
+    "triage": "node src/cli.js",
+    "setup:labels": "node src/setup-labels.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@octokit/rest": "^21.0.2",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "ora": "^8.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT",
+  "allowScripts": {
+    "@google/genai@1.52.0": true,
+    "protobufjs@7.6.6": true
+  }
+}
