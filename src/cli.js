@@ -6,7 +6,7 @@
  *   --mode=manual    → Triase issue tertentu secara manual
  *
  * Usage manual:
- *   node src/cli.js --mode=manual --owner=SoraDev-ID --repo=my-repo --issue=42
+ *   node src/cli.js --mode=manual --owner=SoraaaID --repo=my-repo --issue=42
  */
 import "dotenv/config";
 import { Command } from "commander";
@@ -61,7 +61,7 @@ if (opts.mode === "actions") {
   // Manual mode
   if (!opts.owner || !opts.repo || !opts.issue) {
     console.error(chalk.red("❌ Manual mode membutuhkan: --owner, --repo, --issue"));
-    console.error(chalk.dim("   Contoh: node src/cli.js --mode=manual --owner=SoraDev-ID --repo=my-repo --issue=42"));
+    console.error(chalk.dim("   Contoh: node src/cli.js --mode=manual --owner=SoraaaID --repo=my-repo --issue=42"));
     process.exit(1);
   }
   if (!process.env.GITHUB_TOKEN || !process.env.GEMINI_API_KEY) {
