@@ -24,6 +24,7 @@ Di repo target: **Settings → Secrets → Actions → New secret**
 - Value: API key dari [Google AI Studio](https://aistudio.google.com)
 
 ### 3. Setup labels (sekali saja)
+```bash
 git clone https://github.com/SoraaaID/issue-triage-bot
 cd issue-triage-bot
 npm install
