@@ -102,4 +102,4 @@ issue-triage-bot/
 ```
 
 ## 📄 License
-MIT © SoraDev-ID
+MIT © SoraaaID
