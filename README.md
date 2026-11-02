@@ -24,8 +24,7 @@ Di repo target: **Settings → Secrets → Actions → New secret**
 - Value: API key dari [Google AI Studio](https://aistudio.google.com)
 
 ### 3. Setup labels (sekali saja)
-```bash
-git clone https://github.com/SoraDev-ID/issue-triage-bot
+git clone https://github.com/SoraaaID/issue-triage-bot
 cd issue-triage-bot
 npm install
 
@@ -41,6 +40,16 @@ npm run setup:labels
 ```bash
 node src/cli.js --mode=manual --owner=OWNER --repo=REPO --issue=42
 ```
+
+## 📸 Contoh Output
+
+**CLI saat dijalankan:**
+
+![Preview terminal CLI](assets/preview-terminal.png)
+
+**Komentar triase yang diposting bot ke issue** (render dari output asli modul komentar):
+
+![Contoh komentar triage](assets/example-triage-comment.png)
 
 ## 📋 Contoh Output Komentar
 
