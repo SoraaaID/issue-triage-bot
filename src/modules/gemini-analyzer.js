@@ -96,7 +96,7 @@ ATURAN PENTING:
     config: { temperature: 0.15, responseMimeType: "application/json" },
   });
 
-  const raw = response.text().trim();
+  const raw = (response.text ?? "").trim();
 
   try {
     return JSON.parse(raw);

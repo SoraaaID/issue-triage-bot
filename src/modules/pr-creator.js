@@ -4,12 +4,22 @@ export async function createDraftPR(octokit, config, analysis) {
   if (!step6?.buat_draft_pr || !step6.branch_name) return null;
 
   try {
-    // Dapatkan SHA branch utama
-    const { data: mainRef } = await octokit.git.getRef({
-      owner: config.owner, repo: config.repo, ref: "heads/main",
-    }).catch(() => octokit.git.getRef({
-      owner: config.owner, repo: config.repo, ref: "heads/master",
-    }));
+    // Dapatkan SHA branch utama (main, fallback master) — branch yang berhasil
+    // dipakai juga sebagai base PR, bukan di-hardcode ke "main"
+    let baseBranch = "main";
+    let mainRef;
+    try {
+      const res = await octokit.git.getRef({
+        owner: config.owner, repo: config.repo, ref: "heads/main",
+      });
+      mainRef = res.data;
+    } catch {
+      baseBranch = "master";
+      const res = await octokit.git.getRef({
+        owner: config.owner, repo: config.repo, ref: "heads/master",
+      });
+      mainRef = res.data;
+    }
 
     // Buat branch baru
     await octokit.git.createRef({
@@ -52,7 +62,7 @@ export async function createDraftPR(octokit, config, analysis) {
       owner: config.owner, repo: config.repo,
       title: step6.pr_judul || `Fix #${config.issueNumber}: ${config.issueTitle.slice(0, 60)}`,
       head: step6.branch_name,
-      base: "main",
+      base: baseBranch,
       draft: true,
       body: [
         `## Deskripsi`,
